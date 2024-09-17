@@ -4,6 +4,8 @@ import data from "../../assets/data.json"
 
 
 function Card() {
+    console.log(data);
+
     return (
         <>
             {data.length && data.map(function (value, index) {
@@ -27,16 +29,12 @@ function Card() {
                                 <h2>{value.address.zip}</h2>
                             </div>
                         </div>
-                        <div className="box">
-                            <div className="chek">
+                        {value.cars.length > 0 && <div className="box">
+                            {value.cars.map((el) => <div className="chek">
                                 <input type="checkbox" />
-                                <h2>{value.cars[1]}</h2>
-                            </div>
-                            <div className="chek">
-                                <input type="checkbox" />
-                                <h2>{value.cars[2]}</h2>
-                            </div>
-                        </div>
+                                <h2>{el}</h2>
+                            </div>)}
+                        </div>}
                     </div>
                 )
             })}
